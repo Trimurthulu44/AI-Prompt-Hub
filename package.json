@@ -1,9 +1,0 @@
-{
-  "name": "ai-prompt-hub",
-  "version": "1.0.0",
-  "description": "AI Prompt Hub Enterprise Platform",
-  "scripts": {
-    "build": "cd frontend && npm install && npm run build",
-    "start": "cd frontend && npm run start"
-  }
-}
