@@ -18,13 +18,6 @@ export const Navbar: React.FC = () => {
     { name: 'Analytics', path: '/analytics' },
   ];
 
-  const secondaryLinks = [
-    { name: 'Semantic Search', path: '/semantic-search' },
-    { name: 'Workspace & Keys', path: '/workspace' },
-    { name: 'Audit Logs', path: '/audit' },
-    { name: 'CI/CD & SDK', path: '/cicd-sdk' },
-  ];
-
   const publicNavLinks = [
     { name: 'Home', path: '/' },
     { name: 'Features', path: '/#features' },
@@ -40,7 +33,7 @@ export const Navbar: React.FC = () => {
           <span className="font-bold tracking-tight">AI Prompt Hub</span>
         </Link>
 
-        {/* Center Navigation Links */}
+        {/* Center Navigation Links (Matching Screenshot Tabs) */}
         <nav className="flex items-center space-x-8 text-sm font-medium">
           {isPublicLanding ? (
             publicNavLinks.map((link) => (
@@ -78,20 +71,6 @@ export const Navbar: React.FC = () => {
 
         {/* Right side controls */}
         <div className="flex items-center space-x-4 text-xs">
-          {!isPublicLanding && !isLoginPage && (
-            <div className="hidden lg:flex items-center space-x-3 text-cyan-100 border-r border-cyan-800 pr-4">
-              {secondaryLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.path}
-                  className={`hover:text-white transition ${location.pathname === link.path ? 'text-white font-bold underline' : 'opacity-85'}`}
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </div>
-          )}
-
           {user ? (
             <div className="flex items-center space-x-3">
               <span className="hidden sm:inline-block px-2.5 py-0.5 rounded bg-cyan-950/60 text-cyan-200 border border-cyan-800 font-mono">

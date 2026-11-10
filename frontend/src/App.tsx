@@ -14,7 +14,6 @@ import { EvaluationSecurityPage } from './pages/EvaluationSecurityPage';
 import { QualityGatePage } from './pages/QualityGatePage';
 import { AnalyticsPage } from './pages/AnalyticsPage';
 import { AuditLogsPage } from './pages/AuditLogsPage';
-import { CicdSdkPage } from './pages/CicdSdkPage';
 
 export const App: React.FC = () => {
   return (
@@ -38,7 +37,6 @@ export const App: React.FC = () => {
               <Route path="/gate" element={<QualityGatePage />} />
               <Route path="/analytics" element={<AnalyticsPage />} />
               <Route path="/audit" element={<AuditLogsPage />} />
-              <Route path="/cicd-sdk" element={<CicdSdkPage />} />
 
               {/* Catch-all redirect */}
               <Route path="*" element={<Navigate to="/" replace />} />
