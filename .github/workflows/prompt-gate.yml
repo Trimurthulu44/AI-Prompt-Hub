@@ -1,0 +1,32 @@
+name: AI Prompt Hub Quality Gate
+
+on:
+  push:
+    paths:
+      - 'prompts/**'
+  pull_request:
+    paths:
+      - 'prompts/**'
+
+jobs:
+  quality-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: |
+          pip install requests
+
+      - name: Run Quality Gate Check
+        env:
+          PROMPT_HUB_URL: ${{ secrets.PROMPT_HUB_URL }}
+          PROMPT_HUB_API_KEY: ${{ secrets.PROMPT_HUB_API_KEY }}
+        run: |
+          python sdk/ci_gate.py customer-support-system prompts/support_system.txt
